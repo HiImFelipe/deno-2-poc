@@ -15,7 +15,9 @@ Deno.test("It should delete an existing user", async () => {
   const userRepository = new InMemoryUserRepository();
   const user = userMock;
 
-  const response = await userRepository.deleteByEmail(user.getEmail());
+  const response = await userRepository.deleteByEmail({
+    email: user.getEmail(),
+  });
 
   assertEquals(response, true);
 });

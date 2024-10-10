@@ -15,7 +15,7 @@ export class InMemoryUserRepository implements UserRepository {
     return true;
   }
 
-  public async deleteByEmail(email: string) {
+  public async deleteByEmail({ email }: { email: string }) {
     this.users = this.users.filter((user: User) => user.getEmail() !== email);
 
     return true;

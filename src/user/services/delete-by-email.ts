@@ -1,14 +1,14 @@
 import type { UserRepository } from "../repositories/interface.ts";
 
-export type CreateUserParams = {
+export type DeleteUserByEmailParams = {
   email: string;
 };
-export type CreateUserResponse = Promise<void>;
+export type DeleteUserByEmailResponse = Promise<void>;
 
-export class DeleteUserByEmail {
+export class DeleteUserByEmailByEmailService {
   constructor(private userRepository: UserRepository) {}
 
-  public async execute({ email }: CreateUserParams): Promise<void> {
+  public async execute(email: DeleteUserByEmailParams): Promise<void> {
     await this.userRepository.deleteByEmail(email);
   }
 }

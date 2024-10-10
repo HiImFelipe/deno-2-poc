@@ -6,9 +6,9 @@ export type CreateUserParams = {
   email: string;
   password: string;
 };
-export type CreateUserResponse = Promise<boolean>;
+export type CreateUserResponse = Promise<User>;
 
-export class CreateUser {
+export class CreateUserService {
   constructor(private userRepository: UserRepository) {}
 
   public async execute({
@@ -20,6 +20,6 @@ export class CreateUser {
 
     await this.userRepository.save(user);
 
-    return true;
+    return user;
   }
 }
